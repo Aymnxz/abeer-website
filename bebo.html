@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Abeer</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            animation: float 10s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(calc(-50px + 100px * random())); opacity: 0; }
+        }
+        .message {
+            position: absolute;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message">Your message here</div>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        const colors = ['purple', 'red', 'pink', 'yellow'];
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = Math.random() * window.innerWidth + 'px';
+            flower.style.backgroundImage = `url('https://via.placeholder.com/50/${colors[Math.floor(Math.random() * colors.length)]}')`;
+            flower.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            container.appendChild(flower);
+            setTimeout(() => flower.remove(), 10000);
+        }
+        setInterval(createFlower, 500);
+    </script>
+</body>
+</html>
