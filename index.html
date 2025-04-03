@@ -47,14 +47,19 @@
     </div>
 
     <script>
-        const flowerColors = ['red', 'purple', 'pink'];
+        const flowerImages = [
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Red_rose.jpg/50px-Red_rose.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Purple_flower.jpg/50px-Purple_flower.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Pink_flower.jpg/50px-Pink_flower.jpg'
+        ];
         const numFlowers = 20;
         
         for (let i = 0; i < numFlowers; i++) {
             let flower = document.createElement("div");
             flower.classList.add("flower");
-            flower.style.backgroundImage = `url('https://via.placeholder.com/50/${flowerColors[Math.floor(Math.random() * flowerColors.length)]}/ffffff?text=🌸')`;
+            flower.style.backgroundImage = `url('${flowerImages[Math.floor(Math.random() * flowerImages.length)]}')`;
             flower.style.left = Math.random() * window.innerWidth + "px";
+            flower.style.top = Math.random() * window.innerHeight + "px";
             flower.style.animationDuration = (5 + Math.random() * 5) + "s";
             document.body.appendChild(flower);
         }
