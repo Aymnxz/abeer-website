@@ -32,12 +32,13 @@
             width: 50px;
             height: 50px;
             background-size: cover;
+            background-repeat: no-repeat;
             animation: floatAnimation linear infinite;
         }
 
         @keyframes floatAnimation {
             0% { transform: translateY(100vh) translateX(0); opacity: 1; }
-            100% { transform: translateY(-10vh) translateX(calc(-50px + 100px * random())); opacity: 0; }
+            100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
         }
     </style>
 </head>
@@ -48,9 +49,9 @@
 
     <script>
         const flowerImages = [
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Red_rose.jpg/50px-Red_rose.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Purple_flower.jpg/50px-Purple_flower.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Pink_flower.jpg/50px-Pink_flower.jpg'
+            'https://upload.wikimedia.org/wikipedia/commons/6/6b/Red_rose.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/2/24/Purple_flower.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/3/3f/Pink_flower.jpg'
         ];
         const numFlowers = 20;
         
@@ -59,7 +60,7 @@
             flower.classList.add("flower");
             flower.style.backgroundImage = `url('${flowerImages[Math.floor(Math.random() * flowerImages.length)]}')`;
             flower.style.left = Math.random() * window.innerWidth + "px";
-            flower.style.top = Math.random() * window.innerHeight + "px";
+            flower.style.top = window.innerHeight + "px";
             flower.style.animationDuration = (5 + Math.random() * 5) + "s";
             document.body.appendChild(flower);
         }
