@@ -29,8 +29,8 @@
 
         .flower {
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background-size: cover;
             background-repeat: no-repeat;
             animation: floatAnimation linear infinite;
@@ -48,17 +48,18 @@
     </div>
 
     <script>
-        const flowerImages = [
-            'https://upload.wikimedia.org/wikipedia/commons/6/6b/Red_rose.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/2/24/Purple_flower.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/3/3f/Pink_flower.jpg'
+        const flowerSVGs = [
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="red" d="M12 2a5 5 0 0 1 5 5c0 1.08-.34 2.08-.92 2.92A3.94 3.94 0 0 1 20 13a4 4 0 0 1-4 4c-1.08 0-2.08-.34-2.92-.92A3.94 3.94 0 0 1 12 20a4 4 0 0 1-4-4c0-1.08.34-2.08.92-2.92A3.94 3.94 0 0 1 4 9a4 4 0 0 1 4-4c1.08 0 2.08.34 2.92.92A3.94 3.94 0 0 1 12 2z"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="purple" d="M12 2a5 5 0 0 1 5 5c0 1.08-.34 2.08-.92 2.92A3.94 3.94 0 0 1 20 13a4 4 0 0 1-4 4c-1.08 0-2.08-.34-2.92-.92A3.94 3.94 0 0 1 12 20a4 4 0 0 1-4-4c0-1.08.34-2.08.92-2.92A3.94 3.94 0 0 1 4 9a4 4 0 0 1 4-4c1.08 0 2.08.34 2.92.92A3.94 3.94 0 0 1 12 2z"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="pink" d="M12 2a5 5 0 0 1 5 5c0 1.08-.34 2.08-.92 2.92A3.94 3.94 0 0 1 20 13a4 4 0 0 1-4 4c-1.08 0-2.08-.34-2.92-.92A3.94 3.94 0 0 1 12 20a4 4 0 0 1-4-4c0-1.08.34-2.08.92-2.92A3.94 3.94 0 0 1 4 9a4 4 0 0 1 4-4c1.08 0 2.08.34 2.92.92A3.94 3.94 0 0 1 12 2z"/></svg>'
         ];
+
         const numFlowers = 20;
         
         for (let i = 0; i < numFlowers; i++) {
             let flower = document.createElement("div");
             flower.classList.add("flower");
-            flower.style.backgroundImage = `url('${flowerImages[Math.floor(Math.random() * flowerImages.length)]}')`;
+            flower.innerHTML = flowerSVGs[Math.floor(Math.random() * flowerSVGs.length)];
             flower.style.left = Math.random() * window.innerWidth + "px";
             flower.style.top = window.innerHeight + "px";
             flower.style.animationDuration = (5 + Math.random() * 5) + "s";
